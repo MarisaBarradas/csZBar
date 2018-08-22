@@ -16,21 +16,6 @@
     <js-module src="www/zbar.js" name="zBar">
         <clobbers target="cloudSky.zBar" />
     </js-module>
-        
-
-    <js-module src="www/CameraConstants.js" name="Camera">
-        <clobbers target="Camera" />
-    </js-module>
-
-    <js-module src="www/CameraPopoverOptions.js" name="CameraPopoverOptions">
-        <clobbers target="CameraPopoverOptions" />
-    </js-module>
-
-
-
-    <js-module src="www/Camera.js" name="camera">
-        <clobbers target="navigator.camera" />
-    </js-module>
 
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
@@ -43,6 +28,13 @@
                 android:name="org.cloudsky.cordovaPlugins.ZBarScannerActivity"
                 android:screenOrientation="fullUser"
                 android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-feature android:name="android.hardware.camera" android:required="false"  />
+            <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+            <uses-feature android:name="android.hardware.camera.flash" android:required="false" />
+            <uses-feature android:name="android.hardware.camera.front" android:required="false" />
+        <!--    <uses-permission android:name="android.permission.CAMERA" />  -->
         </config-file>
         <config-file target="res/values/strings.xml" parent="/*">
             <string name="csZbarScannerTitle">Scan QR Code</string>
